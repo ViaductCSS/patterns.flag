@@ -1,0 +1,81 @@
+// =============================
+// Core Flag Pattern Styling
+// =============================
+
+// The flag pattern similar is to the media pattern, however it utilises 
+// `display: table[-cell];` to give us control over the vertical
+// alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+
+//
+// Flag Pattern Default.
+// Note - Reversed Version is the diagram below but the elements are in opposite positions.
+// 
+//    Flag Sidebar               Flag Body
+//
+//                   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//                   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~   
+//    ~ ~ ~ ~ ~ ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+//    ~         ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//    ~         ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//    ~         ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~    
+//    ~ ~ ~ ~ ~ ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//                   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//                   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//
+
+//
+// Flag Pattern Bottom Modifier.
+// Note - Reversed Version is the diagram below but the elements are in opposite positions.
+//
+//    Flag Sidebar              Flag Body                     
+//
+//                   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//                   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//    ~ ~ ~ ~ ~ ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+//    ~         ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//    ~         ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//    ~         ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~    
+//    ~ ~ ~ ~ ~ ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+//   
+
+.flag {
+    display: table;
+    width: 100%;
+}
+
+// Set Direction to reverse the layout of the pattern elements.
+
+.flag--rev {
+    direction: rtl;
+
+    * {
+        direction: ltr;
+    }
+
+}
+    
+    .flag__sidebar,
+    .flag__body,
+    .flag__sidebar--bottom,
+    .flag__body--bottom {
+        display: table-cell;
+    }
+
+    .flag__sidebar,
+    .flag__body {
+        vertical-align: middle;
+    }
+
+    .flag__sidebar--bottom,
+    .flag__body--bottom {
+        vertical-align: bottom;
+    }
+
+    .flag__body {
+        width: 100%;
+    }
+
+        [class*="flag__sidebar"] img {
+            display: block;
+            max-width: none;
+        }
