@@ -1,4 +1,11 @@
 // =============================
+// Enable Private Variables
+// =============================
+
+$flag-pattern-enable:          true !default;
+$flag-pattern-reversed-enable: true !default;
+
+// =============================
 // Core Flag Pattern Styling
 // =============================
 
@@ -38,44 +45,49 @@
 //    ~ ~ ~ ~ ~ ~    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 //   
 
-.flag {
-    display: table;
-    width: 100%;
+@if ($flag-pattern-enable) {
+    .flag {
+        @extend [class~="span-1x"];
+        display: table;
+    }
+        
+        .flag__sidebar,
+        .flag__body,
+        .flag__sidebar--bottom,
+        .flag__body--bottom {
+            display: table-cell;
+        }
+
+        .flag__sidebar,
+        .flag__body {
+            vertical-align: middle;
+        }
+
+        .flag__sidebar--bottom,
+        .flag__body--bottom {
+            vertical-align: bottom;
+        }
+
+        .flag__body {
+            @extend [class~="span-1x"];
+        }
+
+            [class*="flag__sidebar"] img {
+                display: block;
+                max-width: none;
+            }
 }
 
 // Set Direction to reverse the layout of the pattern elements.
 
-.flag--rev {
-    direction: rtl;
+@if ($flag-pattern-enable and $flag-pattern-reversed-enable) {
+    .flag--rev {
+        @extend .flag;
+        direction: rtl;
 
-    * {
-        direction: ltr;
-    }
-
-}
-    
-    .flag__sidebar,
-    .flag__body,
-    .flag__sidebar--bottom,
-    .flag__body--bottom {
-        display: table-cell;
-    }
-
-    .flag__sidebar,
-    .flag__body {
-        vertical-align: middle;
-    }
-
-    .flag__sidebar--bottom,
-    .flag__body--bottom {
-        vertical-align: bottom;
-    }
-
-    .flag__body {
-        width: 100%;
-    }
-
-        [class*="flag__sidebar"] img {
-            display: block;
-            max-width: none;
+        * {
+            direction: ltr;
         }
+
+    }
+}

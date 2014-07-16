@@ -1,0 +1,23 @@
+{
+  "name": "viaduct.patterns.flag",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ViaductCSS/patterns.flag",
+  "authors": [
+    "Ben Cooper <ben.cooper@thap.co.uk>"
+  ],
+  "description": "Patterns Flag Partial for the Viaduct CSS Framework",
+  "keywords": [
+    "viaduct-css-framework",
+    "css-framework",
+    "sass",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
